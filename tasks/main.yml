@@ -1,0 +1,16 @@
+%YAML 1.2
+---
+- name: Install for yum-based OS (CentOS/RHEL, etc)
+  include: centos.yml
+  when: ansible_pkg_mgr == 'yum'
+
+- name: Install for apt-based OS (Debian/Ubuntu, etc)
+  include: debian.yml
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Set as upstart
+  service:
+    name: haveged
+    enabled: yes
+
+...

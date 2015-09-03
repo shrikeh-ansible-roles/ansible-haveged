@@ -1,0 +1,18 @@
+%YAML 1.2
+---
+- name: Install haveged
+  apt:
+    name: haveged
+    state: "{{ haveged_pkg_state }}"
+
+
+- name: Put template into position
+  template:
+    src: "{{ haveged_template_src }}"
+    dest: "{{ haveged_template_path }}"
+    mode: "{{ haveged_template_mode }}"
+    owner: "{{ haveged_template_owner }}"
+    group: "{{ haveged_template_group }}"
+  notify:
+    - restart haveged
+...
