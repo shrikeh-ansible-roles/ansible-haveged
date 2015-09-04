@@ -4,8 +4,20 @@
   yum:
     name: haveged
     state: "{{ haveged_pkg_state }}"
+  notify:
+    - restart haveged
 
-- name: Update init.d
+- name: Set as upstart
+  service:
+    name: haveged
+    enabled: yes
+
+- name: Check if init.d script exists
+  stat:
+    path: "{{ havegad_config_initd_path }}"
+  register: haveged_initd_script
+
+- name: Update init.d on RHEL 6 flavours
   lineinfile: >
     regexp='(\s*)\$\{HAVEGED_BIN\} -w (\d+)(.*)'
     line="\1${HAVEGED_BIN} -w {{ haveged_low_entropy_watermark }}\3"
@@ -14,4 +26,10 @@
     state=present
   notify:
     - restart haveged
+  when: haveged_initd_script.stat.exists
+
+- name: Set the expected path for systemd on CentOS
+  set_fact:
+    haveged_systemd_path: "{{ haveged_systemd_path_centos }}"
+
 ...

@@ -8,9 +8,20 @@
   include: debian.yml
   when: ansible_pkg_mgr == 'apt'
 
-- name: Set as upstart
-  service:
-    name: haveged
-    enabled: yes
+- name: Check if systemd service exists and change it accordingly
+  stat:
+    path: "{{ haveged_systemd_path }}"
+  register: haveged_systemd
+  when: haveged_systemd_path is defined
 
+- name: Update systemd service definition with the preferred entropy
+  lineinfile: >
+    regexp='(.*)/haveged (.*)(--write=|-w ){1}(\d+)(.*)'
+    line="\1/haveged \2--write={{ haveged_low_entropy_watermark }}\5"
+    backrefs=yes
+    dest="{{ haveged_systemd_path }}"
+    state=present
+  when: haveged_systemd is defined and haveged_systemd.stat.exists
+  notify:
+    - restart haveged
 ...

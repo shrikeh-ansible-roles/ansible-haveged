@@ -4,7 +4,13 @@
   apt:
     name: haveged
     state: "{{ haveged_pkg_state }}"
+  notify:
+    - restart haveged
 
+- name: Set as upstart
+  service:
+    name: haveged
+    enabled: yes
 
 - name: Put template into position
   template:
@@ -15,4 +21,8 @@
     group: "{{ haveged_template_group }}"
   notify:
     - restart haveged
+
+- name: Set the expected path for systemd on Debian
+  set_fact:
+    haveged_systemd_path: "{{ haveged_systemd_path_debian }}"
 ...
