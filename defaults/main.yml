@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-haveged_pkg_state: present
+haveged_pkg_state_latest: false
 haveged_low_entropy_watermark: 2048
 
 haveged_template_mode: '0600'

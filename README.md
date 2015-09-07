@@ -1,5 +1,5 @@
 # Haveged
-=========
+------------
 
 This role installs [haveged][haveged] on a server.
 
@@ -13,6 +13,10 @@ On CentOS flavours, you will need to ensure that you have the [Extra Packages fo
 ## Role Variables
 --------------
 
+#### [`haveged_pkg_state_latest`][haveged_pkg_state_latest]
+Default: `false`
+
+Whether to use "present" or "latest" for package installation.
 
 
 ## Dependencies
@@ -25,9 +29,13 @@ On CentOS flavours, you will need to ensure that you have the [Extra Packages fo
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-    - hosts: servers
-      roles:
-         - { role: shrikeh.haveged, haveged_low_entropy_watermark: 2048 }
+```YAML
+%YAML 1.2
+---
+- hosts: production
+  roles:
+    - { role: shrikeh.haveged, haveged_low_entropy_watermark: 2048 }
+...
 
 ## License
 -------
@@ -42,3 +50,5 @@ Contact me on Twitter @[barney_hanlon][twitter]
 [haveged]: http://www.issihosts.com/haveged/ "Link to haveged documentation"
 [epel]: https://fedoraproject.org/wiki/EPEL "Link to EPEL"
 [twitter]: https://twitter.com/barney_hanlon "Link to my Twitter page"
+
+[haveged_pkg_state_latest]: https://github.com/shrikeh/ansible-haveged/blob/master/defaults/main.yml#L3

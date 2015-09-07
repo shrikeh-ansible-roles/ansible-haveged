@@ -3,7 +3,7 @@
 - name: Install haveged
   apt:
     name: haveged
-    state: "{{ haveged_pkg_state }}"
+    state: "{{ 'latest' if haveged_pkg_state_latest else 'present' }}"
   notify:
     - restart haveged
 
