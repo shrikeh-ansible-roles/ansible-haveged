@@ -22,7 +22,7 @@
     regexp='(\s*)\$\{HAVEGED_BIN\} -w (\d+)(.*)'
     line="\1${HAVEGED_BIN} -w {{ haveged_low_entropy_watermark }}\3"
     backrefs=yes
-    dest="{{ havegad_config_initd_path }}"
+    dest="{{ haveged_config_initd_path }}"
     state=present
   notify:
     - restart haveged

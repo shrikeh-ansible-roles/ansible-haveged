@@ -8,6 +8,7 @@ test_role() {
   local ANSIBLE_CHECKOUT_PATH='./.ansible';
   local ANSIBLE_INVENTORY_FILE='./inventory';
   local ANSIBLE_PLAYBOOK='playbook.yml';
+  local ANSIBLE_TEST_REMOTE_USER=${ANSIBLE_TEST_REMOTE_USER:-root};
 
   . <(curl -L --silent "${ANSIBLE_INSTALLER_URI}") \
     -d "${ANSIBLE_CHECKOUT_PATH}" \
@@ -19,6 +20,7 @@ test_role() {
   ( ansible-playbook -i "${ANSIBLE_INVENTORY_FILE}" \
     "${ANSIBLE_PLAYBOOK}" \
     -u "$ANSIBLE_TEST_REMOTE_USER" \
+    --extra-vars="$ANSIBLE_EXTRA_VARS" \
     -vvvv \
   );
 }

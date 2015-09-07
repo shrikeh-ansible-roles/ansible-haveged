@@ -1,7 +1,7 @@
 %YAML 1.2
 ---
 haveged_pkg_state_latest: false
-haveged_low_entropy_watermark: 2048
+haveged_low_entropy_watermark: 1024
 
 haveged_template_mode: '0600'
 haveged_template_owner: root
@@ -9,7 +9,7 @@ haveged_template_group: root
 haveged_template_path: '/etc/default/haveged'
 haveged_template_src: 'debian.j2'
 
-havegad_config_initd_path: '/etc/init.d/haveged'
+haveged_config_initd_path: '/etc/init.d/haveged'
 
 haveged_systemd_path_centos: '/etc/systemd/system/multi-user.target.wants/haveged.service'
 haveged_systemd_path_debian: '/etc/systemd/system/default.target.wants/haveged.service'
