@@ -1,5 +1,6 @@
 %YAML 1.2
 ---
+
 - name: Install haveged
   yum:
     name: haveged
@@ -14,7 +15,7 @@
 
 - name: Check if init.d script exists
   stat:
-    path: "{{ havegad_config_initd_path }}"
+    path: "{{ haveged_config_initd_path }}"
   register: haveged_initd_script
 
 - name: Update init.d on RHEL 6 flavours
