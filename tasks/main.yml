@@ -1,4 +1,3 @@
-%YAML 1.2
 ---
 - name: Install for yum-based OS (CentOS/RHEL, etc)
   include: centos.yml

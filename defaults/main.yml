@@ -1,4 +1,3 @@
-%YAML 1.2
 ---
 haveged_pkg_state_latest: false
 haveged_low_entropy_watermark: 1024
