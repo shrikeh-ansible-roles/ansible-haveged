@@ -1,7 +1,7 @@
 # Haveged
 ------------
-[![Ansible Role](https://img.shields.io/ansible/role/4392.svg)](https://galaxy.ansible.com/detail#/role/5018)
-[![Build Status](https://travis-ci.org/shrikeh/ansible-facl.svg)](https://travis-ci.org/shrikeh/ansible-haveged)
+[![Ansible Role](https://img.shields.io/ansible/role/5018.svg)](https://galaxy.ansible.com/detail#/role/5018)
+[![Build Status](https://travis-ci.org/shrikeh/ansible-haveged.svg)](https://travis-ci.org/shrikeh/ansible-haveged)
 [![GitHub Stars](https://img.shields.io/github/stars/shrikeh/ansible-haveged.svg)](https://github.com/shrikeh/ansible-haveged)
 
 
