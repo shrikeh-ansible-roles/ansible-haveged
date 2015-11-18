@@ -1,8 +1,8 @@
 # Haveged
 ------------
 [![Ansible Role](https://img.shields.io/ansible/role/5018.svg)](https://galaxy.ansible.com/detail#/role/5018)
-[![Build Status](https://travis-ci.org/shrikeh/ansible-haveged.svg)](https://travis-ci.org/shrikeh/ansible-haveged)
-[![GitHub Stars](https://img.shields.io/github/stars/shrikeh/ansible-haveged.svg)](https://github.com/shrikeh/ansible-haveged)
+[![Build Status](https://travis-ci.org/shrikeh-ansible-roles/ansible-haveged.svg)](https://travis-ci.org/shrikeh-ansible-roles/ansible-haveged)
+[![GitHub Stars](https://img.shields.io/github/stars/shrikeh-ansible-roles/ansible-haveged.svg)](https://github.com/shrikeh-ansible-roles/ansible-haveged)
 
 
 This role installs [haveged][haveged] on a server.
@@ -95,15 +95,15 @@ Contact me on Twitter @[barney_hanlon][twitter]
 [haveged]: http://www.issihosts.com/haveged/ "Link to haveged documentation"
 [epel]: https://fedoraproject.org/wiki/EPEL "Link to EPEL"
 [twitter]: https://twitter.com/barney_hanlon "Link to my Twitter page"
-[licence]: https://raw.githubusercontent.com/shrikeh/ansible-jumpcloud/master/LICENSE
+[licence]: https://raw.githubusercontent.com/shrikeh-ansible-roles/ansible-jumpcloud/master/LICENSE
 [haveged_low_entropy]: https://www.digitalocean.com/community/tutorials/how-to-setup-additional-entropy-for-cloud-servers-using-haveged
-[haveged_pkg_state_latest]: https://github.com/shrikeh/ansible-haveged/blob/master/defaults/main.yml#L3
-[haveged_low_entropy_watermark]: https://github.com/shrikeh/ansible-haveged/blob/master/defaults/main.yml#L4
-[haveged_template_mode]: https://github.com/shrikeh/ansible-haveged/blob/master/defaults/main.yml#L6
-[haveged_template_owner]: https://github.com/shrikeh/ansible-haveged/blob/master/defaults/main.yml#L7
-[haveged_template_group]: https://github.com/shrikeh/ansible-haveged/blob/master/defaults/main.yml#L8
-[haveged_template_path]: https://github.com/shrikeh/ansible-haveged/blob/master/defaults/main.yml#L9
-[haveged_template_src]: https://github.com/shrikeh/ansible-haveged/blob/master/defaults/main.yml#L10
-[haveged_config_initd_path]: https://github.com/shrikeh/ansible-haveged/blob/master/defaults/main.yml#L12
-[haveged_systemd_path_centos]: https://github.com/shrikeh/ansible-haveged/blob/master/defaults/main.yml#L14
-[haveged_systemd_path_debian]: https://github.com/shrikeh/ansible-haveged/blob/master/defaults/main.yml#L15
+[haveged_pkg_state_latest]: https://github.com/shrikeh-ansible-roles/ansible-haveged/blob/master/defaults/main.yml#L3
+[haveged_low_entropy_watermark]: https://github.com/shrikeh-ansible-roles/ansible-haveged/blob/master/defaults/main.yml#L4
+[haveged_template_mode]: https://github.com/shrikeh-ansible-roles/ansible-haveged/blob/master/defaults/main.yml#L6
+[haveged_template_owner]: https://github.com/shrikeh-ansible-roles/ansible-haveged/blob/master/defaults/main.yml#L7
+[haveged_template_group]: https://github.com/shrikeh-ansible-roles/ansible-haveged/blob/master/defaults/main.yml#L8
+[haveged_template_path]: https://github.com/shrikeh-ansible-roles/ansible-haveged/blob/master/defaults/main.yml#L9
+[haveged_template_src]: https://github.com/shrikeh-ansible-roles/ansible-haveged/blob/master/defaults/main.yml#L10
+[haveged_config_initd_path]: https://github.com/shrikeh-ansible-roles/ansible-haveged/blob/master/defaults/main.yml#L12
+[haveged_systemd_path_centos]: https://github.com/shrikeh-ansible-roles/ansible-haveged/blob/master/defaults/main.yml#L14
+[haveged_systemd_path_debian]: https://github.com/shrikeh-ansible-roles/ansible-haveged/blob/master/defaults/main.yml#L15
