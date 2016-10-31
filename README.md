@@ -52,25 +52,10 @@ Template to use for the init file. Used for Debian only.
 ####[`haveged_config_initd_path`][haveged_config_initd_path]
 Default: `/etc/init.d/haveged`
 
-Path to the init.d script. Used for CentOS/RHEL only.
-
-####[`haveged_systemd_path_centos`][haveged_systemd_path_centos]
-Default: `/etc/systemd/system/multi-user.target.wants/haveged.service`
-
-Path to the systemd script on CentOS flavours.
-
-####[`haveged_systemd_path_debian`][haveged_systemd_path_debian]
-Default: `/etc/systemd/system/default.target.wants/haveged.service`
-
-Path to the systemd script on Debian flavours.
-
-####[`haveged_lineinfile`][haveged_lineinfile]
-Default: `True`
-
-Enables modifying haveged.service under multi-user.target.wants or default.target.wants
+Path to the init.d script. Used for CentOS/RHEL 6 only.
 
 ####[`haveged_systemd_override`][haveged_systemd_override]
-Default: `False`
+Default: `True`
 
 Template in a systemd override of ExecStart into /etc/systemd/system/haveged.service.d/override.conf
 

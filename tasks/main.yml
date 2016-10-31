@@ -7,23 +7,6 @@
   include: debian.yml
   when: ansible_pkg_mgr == 'apt'
 
-- name: Check if systemd service exists and change it accordingly
-  stat:
-    path: "{{ haveged_systemd_path }}"
-  register: haveged_systemd
-  when: haveged_systemd_path is defined
-
-- name: Update systemd service definition with the preferred entropy
-  lineinfile: >
-    regexp='(.*)/haveged (.*)(--write=|-w ){1}(\d+)(.*)'
-    line="\1/haveged \2--write={{ haveged_low_entropy_watermark }}\5"
-    backrefs=yes
-    dest="{{ haveged_systemd_path }}"
-    state=present
-  when: haveged_systemd is defined and haveged_systemd.stat.exists and haveged_lineinfile and haveged_systemd_override == False
-  notify:
-    - restart haveged
-
 - name: create directory for systemd override
   file: 
     path: /etc/systemd/system/haveged.service.d 
@@ -31,7 +14,7 @@
     owner: root
     group: root
     state: directory
-  when: haveged_systemd is defined and haveged_systemd.stat.exists and haveged_systemd_override and haveged_lineinfile == False
+  when: haveged_systemd is defined and haveged_systemd.stat.exists and haveged_systemd_override
 
 - name: template in systemd override
   template:
@@ -40,7 +23,7 @@
     mode: "0644"
     owner: "root"
     group: "root"
-  when: haveged_systemd is defined and haveged_systemd.stat.exists and haveged_systemd_override and haveged_lineinfile == False
+  when: haveged_systemd is defined and haveged_systemd.stat.exists and haveged_systemd_override
   notify:
     - restart haveged
 ...
