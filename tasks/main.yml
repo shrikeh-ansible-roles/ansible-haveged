@@ -7,6 +7,12 @@
   include: debian.yml
   when: ansible_pkg_mgr == 'apt'
 
+- name: Check if systemd service exists and change it accordingly
+  stat:
+    path: "{{ haveged_systemd_path }}"
+  register: haveged_systemd
+  when: haveged_systemd_path is defined
+
 - name: create directory for systemd override
   file: 
     path: /etc/systemd/system/haveged.service.d 

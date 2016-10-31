@@ -54,6 +54,11 @@ Default: `/etc/init.d/haveged`
 
 Path to the init.d script. Used for CentOS/RHEL 6 only.
 
+####[`haveged_systemd_path`][haveged_systemd_path]
+Default: `/usr/lib/systemd/system/haveged.service`
+
+Path to the systemd service script
+
 ####[`haveged_systemd_override`][haveged_systemd_override]
 Default: `True`
 
