@@ -6,7 +6,7 @@
   notify:
     - restart haveged
 
-- name: Set as upstart
+- name: start haveged on boot
   service:
     name: haveged
     enabled: yes
