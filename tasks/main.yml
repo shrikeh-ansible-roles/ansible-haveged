@@ -20,7 +20,7 @@
     backrefs=yes
     dest="{{ haveged_systemd_path }}"
     state=present
-  when: haveged_systemd is defined and haveged_systemd.stat.exists and haveged_lineinfile
+  when: haveged_systemd is defined and haveged_systemd.stat.exists and haveged_lineinfile and haveged_systemd_override == False
   notify:
     - restart haveged
 
@@ -31,7 +31,7 @@
     owner: root
     group: root
     state: directory
-  when: haveged_systemd is defined and haveged_systemd.stat.exists and haveged_systemd_override
+  when: haveged_systemd is defined and haveged_systemd.stat.exists and haveged_systemd_override and haveged_lineinfile == False
 
 - name: template in systemd override
   template:
@@ -40,7 +40,7 @@
     mode: "0644"
     owner: "root"
     group: "root"
-  when: haveged_systemd is defined and haveged_systemd.stat.exists and haveged_systemd_override
+  when: haveged_systemd is defined and haveged_systemd.stat.exists and haveged_systemd_override and haveged_lineinfile == False
   notify:
     - restart haveged
 ...
