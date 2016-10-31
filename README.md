@@ -64,6 +64,16 @@ Default: `/etc/systemd/system/default.target.wants/haveged.service`
 
 Path to the systemd script on Debian flavours.
 
+####[`haveged_lineinfile`][haveged_lineinfile]
+Default: `True`
+
+Enables modifying haveged.service under multi-user.target.wants or default.target.wants
+
+####[`haveged_systemd_override`][haveged_systemd_override]
+Default: `False`
+
+Template in a systemd override of ExecStart into /etc/systemd/system/haveged.service.d/override.conf
+
 ## Dependencies
 ------------
 None.

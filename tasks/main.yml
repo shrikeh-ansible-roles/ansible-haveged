@@ -20,7 +20,27 @@
     backrefs=yes
     dest="{{ haveged_systemd_path }}"
     state=present
-  when: haveged_systemd is defined and haveged_systemd.stat.exists
+  when: haveged_systemd is defined and haveged_systemd.stat.exists and haveged_lineinfile
+  notify:
+    - restart haveged
+
+- name: create directory for systemd override
+  file: 
+    path: /etc/systemd/system/haveged.service.d 
+    mode: 0755 
+    owner: root
+    group: root
+    state: directory
+  when: haveged_systemd is defined and haveged_systemd.stat.exists and haveged_systemd_override
+
+- name: template in systemd override
+  template:
+    src: "haveged.service.override.conf.j2"
+    dest: "/etc/systemd/system/haveged.service.d/override.conf"
+    mode: "0644"
+    owner: "root"
+    group: "root"
+  when: haveged_systemd is defined and haveged_systemd.stat.exists and haveged_systemd_override
   notify:
     - restart haveged
 ...
