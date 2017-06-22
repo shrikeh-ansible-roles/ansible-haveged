@@ -6,7 +6,7 @@
   notify:
     - restart haveged
 
-- name: Set as upstart
+- name: start haveged on boot
   service:
     name: haveged
     enabled: yes
@@ -21,7 +21,4 @@
   notify:
     - restart haveged
 
-- name: Set the expected path for systemd on Debian
-  set_fact:
-    haveged_systemd_path: "{{ haveged_systemd_path_debian }}"
 ...

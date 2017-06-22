@@ -7,7 +7,7 @@
   notify:
     - restart haveged
 
-- name: Set as upstart
+- name: start haveged on boot
   service:
     name: haveged
     enabled: yes
@@ -27,9 +27,5 @@
   notify:
     - restart haveged
   when: haveged_initd_script.stat.exists
-
-- name: Set the expected path for systemd on CentOS
-  set_fact:
-    haveged_systemd_path: "{{ haveged_systemd_path_centos }}"
 
 ...

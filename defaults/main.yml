@@ -10,6 +10,6 @@ haveged_template_src: 'debian.j2'
 
 haveged_config_initd_path: '/etc/init.d/haveged'
 
-haveged_systemd_path_centos: '/etc/systemd/system/multi-user.target.wants/haveged.service'
-haveged_systemd_path_debian: '/etc/systemd/system/default.target.wants/haveged.service'
+haveged_systemd_path: "/usr/lib/systemd/system/haveged.service"
+haveged_systemd_override: True
 ...
