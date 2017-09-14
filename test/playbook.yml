@@ -1,7 +1,8 @@
 ---
 - hosts: local
   tasks:
-    - add_host:
+    - name: Test the role
+      add_host:
         groups: test
         name: "{{ lookup('env','TEST_ANSIBLE_HOSTNAME') }}"
         ansible_connection: "{{ lookup('env','TEST_ANSIBLE_CONNECTION') }}"
