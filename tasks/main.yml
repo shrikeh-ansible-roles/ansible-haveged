@@ -14,9 +14,9 @@
   when: haveged_systemd_path is defined
 
 - name: create directory for systemd override
-  file: 
-    path: /etc/systemd/system/haveged.service.d 
-    mode: 0755 
+  file:
+    path: /etc/systemd/system/haveged.service.d
+    mode: 0755
     owner: root
     group: root
     state: directory
